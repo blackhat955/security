@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "cors": "^2.8.6",
+    "csrf-csrf": "^4.0.3",
+    "file-type": "^16.5.4",
+    "helmet": "^8.1.0",
+    "ipaddr.js": "^2.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "rate-limiter-flexible": "^9.1.0",
+    "uuid": "^13.0.0",
+    "validator": "^13.15.26",
+    "xss": "^1.0.15"
+  },
+  "devDependencies": {
+    "express": "^5.2.1"
+  }
+}
