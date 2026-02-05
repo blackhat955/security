@@ -5,7 +5,7 @@ A comprehensive security package for Node.js applications, aggregating best-in-c
 ## Installation
 
 ```bash
-npm install ultimate-security-pack
+npm install @blackhat955/ultimate-security-pack
 ```
 
 ## Features
@@ -33,7 +33,7 @@ npm install ultimate-security-pack
 
 ```javascript
 const express = require('express');
-const { headers } = require('ultimate-security-pack');
+const { headers } = require('@blackhat955/ultimate-security-pack');
 const app = express();
 
 app.use(headers());
@@ -42,21 +42,21 @@ app.use(headers());
 ### 2. XSS Protection
 
 ```javascript
-const { xss } = require('ultimate-security-pack');
+const { xss } = require('@blackhat955/ultimate-security-pack');
 app.use(xss.xssMiddleware());
 ```
 
 ### 3. Rate Limiting
 
 ```javascript
-const { ratelimit } = require('ultimate-security-pack');
+const { ratelimit } = require('@blackhat955/ultimate-security-pack');
 app.use(ratelimit({ points: 10, duration: 1 }));
 ```
 
 ### 4. CORS Hardening
 
 ```javascript
-const { cors } = require('ultimate-security-pack');
+const { cors } = require('@blackhat955/ultimate-security-pack');
 
 app.use(cors({
   allowedOrigins: ['https://example.com'],
@@ -67,7 +67,7 @@ app.use(cors({
 ### 5. Auth Hardening
 
 ```javascript
-const { auth } = require('ultimate-security-pack');
+const { auth } = require('@blackhat955/ultimate-security-pack');
 
 // Cookie options
 res.cookie('session', 'value', auth.secureCookieOptions());
@@ -83,7 +83,7 @@ try {
 ### 6. Request Limits
 
 ```javascript
-const { requestLimits } = require('ultimate-security-pack');
+const { requestLimits } = require('@blackhat955/ultimate-security-pack');
 
 // Applies strict json/urlencoded limits
 app.use(requestLimits({ jsonLimit: '10kb' }));
@@ -92,7 +92,7 @@ app.use(requestLimits({ jsonLimit: '10kb' }));
 ### 7. File Upload Security
 
 ```javascript
-const { fileUpload } = require('ultimate-security-pack');
+const { fileUpload } = require('@blackhat955/ultimate-security-pack');
 
 // Check buffer mime type
 const isValid = await fileUpload.validateFileContent(fileBuffer);
@@ -104,7 +104,7 @@ const isExtValid = fileUpload.validateExtension('image.jpg');
 ### 8. Logging (Audit)
 
 ```javascript
-const { logging } = require('ultimate-security-pack');
+const { logging } = require('@blackhat955/ultimate-security-pack');
 
 app.use(logging.middleware()); // Adds correlation ID
 
@@ -117,7 +117,7 @@ logging.log('login-failed', 'Invalid password for user', {
 ### 9. Bot Protection
 
 ```javascript
-const { botProtection } = require('ultimate-security-pack');
+const { botProtection } = require('@blackhat955/ultimate-security-pack');
 
 app.use(botProtection({ 
   blockUserAgents: ['curl', 'python'],
@@ -128,7 +128,7 @@ app.use(botProtection({
 ### 10. SSRF Protection
 
 ```javascript
-const { ssrf } = require('ultimate-security-pack');
+const { ssrf } = require('@blackhat955/ultimate-security-pack');
 
 if (ssrf.validateUrl(userInputUrl)) {
   // Safe to fetch
@@ -138,7 +138,7 @@ if (ssrf.validateUrl(userInputUrl)) {
 ### 11. Open Redirect Guard
 
 ```javascript
-const { openRedirect } = require('ultimate-security-pack');
+const { openRedirect } = require('@blackhat955/ultimate-security-pack');
 
 app.use(openRedirect.safeRedirect({ allowedHosts: ['example.com'] }));
 
@@ -149,7 +149,7 @@ res.redirect(userInputUrl);
 ### 12. Cache Control (Sensitive Routes)
 
 ```javascript
-const { cacheControl } = require('ultimate-security-pack');
+const { cacheControl } = require('@blackhat955/ultimate-security-pack');
 
 app.get('/profile', cacheControl(), (req, res) => {
   res.json({ user: 'data' });
@@ -159,7 +159,7 @@ app.get('/profile', cacheControl(), (req, res) => {
 ### 13. Security.txt & Robots.txt
 
 ```javascript
-const { securityTxt } = require('ultimate-security-pack');
+const { securityTxt } = require('@blackhat955/ultimate-security-pack');
 
 app.use(securityTxt.securityTxt({ contact: 'mailto:sec@example.com' }));
 app.use(securityTxt.robotsTxt());
